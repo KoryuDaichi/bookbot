@@ -22,7 +22,8 @@ def sort_on(dict):
 def character_count_to_sorted_list(charactercount):
     charactercountlist = []
     for char, count in charactercount.items():
-        charactercountlist.append({"char": char, "count":count})
-    charactercountlist.sort(key=lambda x: x["count"],reverse=True)
+        if char.isalpha():
+            charactercountlist.append({"char": char, "count":count})
+        charactercountlist.sort(key=lambda x: x["count"],reverse=True)
     return charactercountlist
 

@@ -26,10 +26,3 @@ def character_count_to_sorted_list(charactercount):
     charactercountlist.sort(key=lambda x: x["count"],reverse=True)
     return charactercountlist
 
-#def character_count_sort(charactercountlist):
-#    charactercountlist.sort(key=sort_on,reverse=True)
-#    return charactercountlist   
-
-#test_dict = {'t': 29493, 'h': 19176, 'e': 44538, ' ': 70480}
-#sorted_list = character_count_to_list(test_dict)
-#print(sorted_list)

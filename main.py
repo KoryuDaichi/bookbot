@@ -19,7 +19,6 @@ def main():
     text = get_book_text(book)
     #get the number of words in the text
     num_words = get_num_words(text)
-    #print(f"{num_words} words found in the document")
     #get and format Character count in text.
     character_count = get_character_count(text)
     charactercountdictionary = character_count_to_sorted_list(character_count)

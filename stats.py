@@ -24,6 +24,6 @@ def character_count_to_sorted_list(charactercount):
     for char, count in charactercount.items():
         if char.isalpha():
             charactercountlist.append({"char": char, "count":count})
-        charactercountlist.sort(key=lambda x: x["count"],reverse=True)
+    charactercountlist.sort(key=sort_on,reverse=True)
     return charactercountlist
 

@@ -9,7 +9,6 @@ def get_num_words(text):
 # calculate the character counts
 def get_character_count(words):
     lowerwords = words.lower()
-    wordsplit = lowerwords.split()
     characternumbers = {}
     for c in lowerwords:
         if c not in characternumbers:
@@ -24,10 +23,10 @@ def sort_on(dict):
 
 # filter and sort the character count dictionary.
 def character_count_to_sorted_list(charactercount):
-    charactercountlist = []
+    countlist = []
     for char, count in charactercount.items():
         if char.isalpha():
-            charactercountlist.append({"char": char, "count":count})
-    charactercountlist.sort(key=sort_on,reverse=True)
-    return charactercountlist
+            countlist.append({"char": char, "count":count})
+    countlist.sort(key=sort_on,reverse=True)
+    return countlist
 

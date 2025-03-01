@@ -10,10 +10,11 @@ from stats import get_character_count
 from stats import character_count_to_sorted_list
 
 # Initilization args
-argument = sys.argv
-if len(argument) < 2:
+args = sys.argv
+if len(args) < 2:
     print("Usage: python3 main.py <path_to_book>")
     sys.exit(1)
+
 
 # open book from path
 def get_book_text(bookpath):
@@ -24,9 +25,13 @@ def get_book_text(bookpath):
 
 def main():
     # pull the book path from the sys.argv list
-    book = argument[1]
+    book = args[1]
     # pull text from book into string called text.
-    text = get_book_text(book)
+    try:
+        text = get_book_text(book)
+    except OSError as e:
+        print(f"Error: Could not proccess the file. {e}")
+        sys.exit(1)
     # get the number of words in the text
     num_words = get_num_words(text)
     # get and format Character count in text.
@@ -38,7 +43,7 @@ def main():
     print(f"Found {num_words} total words")
     print("--------- Character Count -------")
     for item in charactercountdictionary:
-        print(f"{item["char"]}: {item["count"]}")
+        print(f"{item['char']:3}: {item['count']:10}")
     print("============= END ===============")
 
 main()

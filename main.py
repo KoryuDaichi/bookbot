@@ -1,5 +1,18 @@
 # Bookbot Main program
 
+import sys
+
+#import functions from Stats.py
+from stats import get_num_words
+from stats import get_character_count
+from stats import character_count_to_sorted_list
+
+# Initilization args
+argument = sys.argv
+if len(argument) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
 #open book from path
 def get_book_text(bookpath):
     book_contents = ""
@@ -7,14 +20,8 @@ def get_book_text(bookpath):
         book_contents = f.read()
     return book_contents
 
-#import functions from Stats.py
-from stats import get_num_words
-from stats import get_character_count
-from stats import character_count_to_sorted_list
-
-
 def main():
-    book = "books/frankenstein.txt"
+    book = argument[1]
     #pull text from book into string called text.
     text = get_book_text(book)
     #get the number of words in the text
